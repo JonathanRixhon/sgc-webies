@@ -15,6 +15,7 @@ class Movies extends Model
         JOIN publics p ON p.id=m.public_id
         LEFT JOIN (SELECT movie_id,AVG(rating) AS rating FROM reviews GROUP BY movie_id) AS r ON r.movie_id= m.id
         Where featured=1 AND (m.published_until IS NULL OR m.published_until>NOW()) ORDER BY m.released_at LIMIT 1'); 
+        
         $producers['producers']=static::fetchAll('SELECT 
         p.firstname,
         p.slug,

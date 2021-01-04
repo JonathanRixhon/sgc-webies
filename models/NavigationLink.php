@@ -17,7 +17,6 @@ class NavigationLink extends Model
     {
         // 1. Effectuer la requête en base de données
         $results = static::fetchAll('SELECT `url`, `label`, `icon` FROM `navigation_links` ORDER BY `order` ASC;');
-
         // 2. Créer une instance par ligne récupérée
         foreach ($results as $index => $line) {
             $results[$index] = new NavigationLink($line);
